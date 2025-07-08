@@ -6,7 +6,6 @@ import Login from './auth/login'
 import Profile from './pages/profile'
 import MentorsPage from './pages/mentorsPage'
 import Unauthorized from './pages/Unauthorized'
-import ProtectedRoute from './component/profectedRoutes'
 import BecomeMentor from './pages/becomeMentor'
 import { useAuth } from './auth/AuthContext'
 
@@ -44,21 +43,15 @@ function App ()  {
       
       {/* Protected Routes */}
       <Route path='/profile' element={
-      
           <Profile/>
-        
       } />
       
       <Route path='/mentors' element={
-      
           <MentorsPage/>
-        
       } />
       
       <Route path='/become-mentor' element={
-      
           <BecomeMentor/>
-        
       } />
       </Routes>
   )

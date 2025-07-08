@@ -47,7 +47,7 @@ interface Errors {
 
 function BecomeMentor() {
   const navigate = useNavigate()
-  const { user, isAuthenticated } = useAuth()
+  const { isAuthenticated } = useAuth()
   const [currentStep, setCurrentStep] = useState(1)
   const [formData, setFormData] = useState<FormData>({
     // Personal Information
