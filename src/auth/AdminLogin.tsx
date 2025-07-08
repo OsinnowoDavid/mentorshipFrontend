@@ -7,7 +7,6 @@ import { useAuth } from './AuthContext'
 
 function AdminLogin() {
     const navigate = useNavigate()
-    const location = useLocation()
     interface LoginResponse {
         token: string,
         user: {
