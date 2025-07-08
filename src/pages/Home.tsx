@@ -37,12 +37,17 @@ function Home() {
                   </Link>
                 </>
               ) : (
-                <Link 
-                  to="/login" 
-                  className='bg-white text-cyan-800 px-4 py-2 rounded-lg hover:bg-cyan-100 transition-colors duration-200 font-medium'
-                >
-                  Login
-                </Link>
+                <><Link
+                    to="/login"
+                    className='bg-white text-cyan-800 px-4 py-2 rounded-lg hover:bg-cyan-100 transition-colors duration-200 font-medium'
+                  >
+                    Login
+                  </Link><Link
+                    to="/adminLogin"
+                    className='bg-white text-cyan-800 px-4 py-2 rounded-lg hover:bg-cyan-100 transition-colors duration-200 font-medium'
+                  >
+                      Admin Login
+                    </Link></>
               )}
             </div>
           </div>

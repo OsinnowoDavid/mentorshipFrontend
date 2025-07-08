@@ -8,7 +8,8 @@ import MentorsPage from './pages/mentorsPage'
 import Unauthorized from './pages/Unauthorized'
 import BecomeMentor from './pages/becomeMentor'
 import { useAuth } from './auth/AuthContext'
-
+import AdminLogin from './auth/AdminLogin'
+import AdminDashboard from './pages/AdminDashboard'
 // LogoutRedirect component
 function LogoutRedirect() {
   const { logout } = useAuth()
@@ -40,7 +41,8 @@ function App ()  {
       <Route path='/login' element={<Login/>} />
       <Route path='/unauthorized' element={<Unauthorized/>} />
       <Route path='/logout' element={<LogoutRedirect/>} />
-      
+      <Route path='/adminLogin' element={<AdminLogin/>} />
+      <Route path='/adminDashboard' element={<AdminDashboard/>} />
       {/* Protected Routes */}
       <Route path='/profile' element={
           <Profile/>

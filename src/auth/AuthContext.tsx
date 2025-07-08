@@ -1,5 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react'
 import type { ReactNode } from 'react'
+import axios from 'axios'
+import { useShopContext } from '../context'
 
 interface User {
   id: string;
@@ -31,16 +33,33 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     // Check for existing token and user data on app load
     const storedToken = localStorage.getItem('token')
     const storedUser = localStorage.getItem('user')
-    
-    if (storedToken && storedUser) {
+    const fetchUserData = async (token: string) => {
+      try {
+        const context = useShopContext();
+        const backendUrl = context?.backendUrl || '';
+        const response = await axios.get(`${backendUrl}/api/auth/getUserData`, {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+        setUser(response.data.user)
+        setIsAuthenticated(true)
+        localStorage.setItem('user', JSON.stringify(response.data.user))
+      } catch (error) {
+        setUser(null)
+        setIsAuthenticated(false)
+        localStorage.removeItem('user')
+      }
+    }
+    if (storedToken) {
+      setToken(storedToken)
+      fetchUserData(storedToken)
+    } else if (storedUser) {
       try {
         const userData = JSON.parse(storedUser)
-        setToken(storedToken)
         setUser(userData)
         setIsAuthenticated(true)
       } catch (error) {
-        // If stored data is corrupted, clear it
-        localStorage.removeItem('token')
         localStorage.removeItem('user')
       }
     }
