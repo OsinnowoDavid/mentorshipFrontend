@@ -23,7 +23,6 @@ function AdminLogin() {
     const { login } = useAuth()
     
     // Get the intended destination from location state
-    const from = location.state?.from?.pathname || "/"
     const [email, setEmail] = useState<string>("")
     const [password, setPassword] = useState<string>("")
     const [isLoading, setIsLoading] = useState<boolean>(false)
