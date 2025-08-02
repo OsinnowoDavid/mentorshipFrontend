@@ -87,12 +87,12 @@ function Home() {
               Find a Mentor
             </Link>
             
-            <Link 
+            {/* <Link 
               to="/become-mentor"
               className='bg-transparent border-2 border-white text-white hover:bg-white hover:text-black px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-200 transform hover:scale-105'
             >
               Become a Mentor
-            </Link>
+            </Link> */}
           </div>
           
           {/* Stats Section */}
